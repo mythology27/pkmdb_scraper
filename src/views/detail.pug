@@ -1,0 +1,166 @@
+html
+    head
+        link(rel='stylesheet' type='text/css' href='/css/index.css')
+        link(rel='stylesheet' type='text/css' href='/css/detail.css')
+        title=`${pokemon.name} Pokédex: stats, evolution`
+        link(rel='shortcut icon' type='image/x-icon' href='https://pokemondb.net/favicon.ico')
+    body
+        include includes/header.pug
+        main.main-content.grid-container
+            h1= pokemon.name
+            div.tabset-basics.tabs-wrapper.tabs-onetab
+                div.tabs-tab-list
+                    a.tabs-tab.active(href="#tab-basic-1")= pokemon.name
+                div.tabs-panel-list
+                    div.tabs-panel.active#tab-basic-1
+                        div.grid-row
+                            div.grid-col.span-md-6.span-lg-4.text-center
+                                p
+                                    a(rel="lightbox", href="#")
+                                        img(src= pokemon.img, alt= pokemon.name, onclick="show_modal()")
+                            div.grid-col.span-md-6.span-lg-4
+                                h2 Pokédex data
+                                table.vitals-table
+                                    tbody
+                                        tr
+                                            th Number
+                                            td
+                                                strong= pokemon.id
+                                        tr
+                                            th Type
+                                            td
+                                                if pokemon.types.length == 1
+                                                    a.type-icon(class= "type-"+pokemon.types[0].type_name.toLowerCase(), href= pokemon.types[0].type_url)= pokemon.types[0].type_name
+                                                else
+                                                    a.type-icon(class= "type-"+pokemon.types[0].type_name.toLowerCase(), href= pokemon.types[0].type_url)= pokemon.types[0].type_name
+                                                    a.type-icon(class= "type-"+pokemon.types[1].type_name.toLowerCase(), href= pokemon.types[1].type_url)= pokemon.types[1].type_name
+                                        tr
+                                            th Species
+                                            td= pokemon.species
+                                        tr
+                                            th Height
+                                            td= pokemon.height
+                                        tr
+                                            th Weight
+                                            td= pokemon.weight
+                                        tr
+                                            th Abilities
+                                            td
+                                                span.text-muted= pokemon.abilities
+                            div.grid-col.span-md-12.span-lg-4
+                                div.grid-row
+                                    div.grid-col.span-md-6.span-lg-12
+                                        h2 Training
+                                        table.vitals-table
+                                            tbody
+                                                tr
+                                                    th EV yield
+                                                    td.text= pokemon.ev
+                                                tr
+                                                    th Catch rate
+                                                    td= pokemon.catch_rate
+                                                tr
+                                                    th Base Friendship
+                                                    td= pokemon.base_friendship
+                                                tr
+                                                    th Base Exp.
+                                                    td= pokemon.base_exp
+                                                tr
+                                                    th Growth rate
+                                                    td= pokemon.growth_rate
+                                    div.grid-col.span-md-6.span-lg-12
+                                        h2 Breeding
+                                        table.vitals-table
+                                            tbody
+                                                tr
+                                                    th Egg Groups
+                                                    td= pokemon.egg
+                                                tr
+                                                    th Gender
+                                                    td= pokemon.gender
+                                                tr
+                                                    th Egg cycles
+                                                    td= pokemon.egg_cycles
+                        div.grid-row
+                            div.grid-col.span-md-12.span-lg-8
+                                h2 Base stats
+                                div.resp-scroll
+                                    table.vitals-table
+                                        tbody
+                                            tr
+                                                th HP
+                                                td.cell-num= pokemon.hp
+                                                td.cell-barchart
+                                                    div(class= "barchart-bar "+pokemon.hp_bar_rank, style= pokemon.hp_bar)
+                                                td.cell-num= pokemon.hp_min
+                                                td.cell-num= pokemon.hp_max
+                                            tr
+                                                th Attack
+                                                td.cell-num= pokemon.atk
+                                                td.cell-barchart
+                                                    div(class= "barchart-bar "+pokemon.atk_bar_rank, style= pokemon.atk_bar)
+                                                td.cell-num= pokemon.atk_min
+                                                td.cell-num= pokemon.atk_max
+                                            tr
+                                                th Defense
+                                                td.cell-num= pokemon.dfs
+                                                td.cell-barchart
+                                                    div(class= "barchart-bar "+pokemon.dfs_bar_rank, style= pokemon.dfs_bar)
+                                                td.cell-num= pokemon.dfs_min
+                                                td.cell-num= pokemon.dfs_max
+                                            tr
+                                                th Sp. Atk
+                                                td.cell-num= pokemon.sp_atk
+                                                td.cell-barchart
+                                                    div(class= "barchart-bar "+pokemon.sp_atk_bar_rank, style= pokemon.sp_atk_bar)
+                                                td.cell-num= pokemon.sp_atk_min
+                                                td.cell-num= pokemon.sp_atk_max
+                                            tr
+                                                th Sp. Def
+                                                td.cell-num= pokemon.sp_dfs
+                                                td.cell-barchart
+                                                    div(class= "barchart-bar "+pokemon.sp_dfs_bar_rank, style= pokemon.sp_dfs_bar)
+                                                td.cell-num= pokemon.sp_dfs_min
+                                                td.cell-num= pokemon.sp_dfs_max
+                                            tr
+                                                th Speed
+                                                td.cell-num= pokemon.spd
+                                                td.cell-barchart
+                                                    div(class= "barchart-bar "+pokemon.spd_bar_rank, style= pokemon.spd_bar)
+                                                td.cell-num= pokemon.spd_min
+                                                td.cell-num= pokemon.spd_max
+                                        tfoot
+                                            tr
+                                                th Total
+                                                td.cell-total
+                                                    b= pokemon.total
+                                                th.cell-barchart
+                                                th Min
+                                                th Max
+                            div.grid-col.span-md-12.span-lg-4
+                                h2 Evolution chart
+                                    if pokemon.evols.length != 0
+                                        div.infocard-list-evo
+                                            for evol in pokemon.evols
+                                                div.infocard
+                                                    span.infocard-lg-img
+                                                        a(href= "/pokemon/"+evol.name.toLowerCase())
+                                                            img(src= evol.url_img, alt= evol.name)
+                                                    span.infocard-lg-data.text-muted
+                                                        a.ent-name(href= "/pokemon/"+evol.name.toLowerCase())= evol.name
+                                    else
+                                        ul
+                                            li
+                                                small
+                                                    em #{pokemon.name} does not evolve.
+        include includes/footer.pug
+        div#img-lightbox.whiteout(style="display: none")
+            div.modal(style="width: auto")
+                span.modal-close(title="Close", onclick="close_modal()") x
+                h3.modal-title #{pokemon.name} official artwork
+                div.modal-content(style="width: 799.427px; height: 620px")
+                    img(src= pokemon.img, width="700", heigth="590")
+        script(type='text/javascript' src='/js/detail.js')
+
+
+

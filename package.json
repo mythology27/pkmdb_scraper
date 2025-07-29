@@ -1,0 +1,38 @@
+{
+  "name": "pkmdb_scraper",
+  "version": "1.0.0",
+  "description": "A web scraper to extract info from PokemonDB",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mythology27/pkmdb_scraper.git"
+  },
+  "keywords": [
+    "web-scraping",
+    "nodejs",
+    "cheerio",
+    "expressjs",
+    "javascript"
+  ],
+  "author": "mythology27",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mythology27/pkmdb_scraper/issues"
+  },
+  "homepage": "https://github.com/mythology27/pkmdb_scraper#readme",
+  "dependencies": {
+    "cheerio": "^1.1.2",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "express-session": "^1.18.2",
+    "fs-extra": "^11.3.0",
+    "node-fetch": "^3.3.2",
+    "path": "^0.12.7",
+    "pug": "^3.0.3",
+    "xml2js": "^0.6.2"
+  }
+}

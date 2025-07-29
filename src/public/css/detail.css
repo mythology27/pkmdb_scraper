@@ -1,0 +1,362 @@
+.cell-barchart {
+    width: 100%;
+    min-width: 150px
+}
+
+.barchart-bar {
+    height: .75rem;
+    border-radius: 4px;
+    background-color: #a3a3a3;
+    border: 1px solid #737373;
+    border-color: rgba(0, 0, 0, 0.15)
+}
+
+.barchart-rank-1 {
+    background-color: #f34444
+}
+
+.barchart-rank-2 {
+    background-color: #ff7f0f
+}
+
+.barchart-rank-3 {
+    background-color: #ffdd57
+}
+
+.barchart-rank-4 {
+    background-color: #a0e515
+}
+
+.barchart-rank-5 {
+    background-color: #23cd5e
+}
+
+.barchart-rank-6 {
+    background-color: #00c2b8
+}
+
+.type-table th,
+.type-table td {
+    padding: 0;
+    border: 1px solid #f0f0f0
+}
+
+.cell-atkdef {
+    font-size: .625rem;
+    font-weight: normal;
+    line-height: 1
+}
+
+.type-cell {
+    display: block;
+    width: 66px;
+    height: 28px;
+    font-size: .625rem;
+    margin-bottom: 0;
+    line-height: 26px
+}
+
+.type-abbr {
+    width: 28px
+}
+
+.type-fx-cell,
+.type-fx-icon {
+    color: #ffdd57;
+    font-size: .625rem;
+    width: 28px;
+    height: 28px;
+    line-height: 26px;
+    text-align: center
+}
+
+.type-fx-icon {
+    display: inline-block;
+    border: 1px solid #f0f0f0
+}
+
+.type-fx-25,
+.type-fx-50 {
+    font-size: .75rem
+}
+
+.type-fx-null {
+    background-color: #f0f0f0
+}
+
+.type-fx-0 {
+    background-color: #2e3436
+}
+
+.type-fx-25 {
+    background-color: #7c0000
+}
+
+.type-fx-50 {
+    background-color: #a40000
+}
+
+.type-fx-100 {
+    background-color: #ffffff
+}
+
+.type-fx-200 {
+    background-color: #4e9a06
+}
+
+.type-fx-400 {
+    background-color: #73d216
+}
+
+@media (min-width: 900px) {
+
+    .type-cell,
+    .type-fx-cell,
+    .type-fx-icon {
+        height: 36px;
+        font-size: .75rem;
+        line-height: 34px
+    }
+
+    .type-abbr,
+    .type-fx-cell,
+    .type-fx-icon {
+        width: 36px
+    }
+
+    .cell-atkdef {
+        line-height: 1.2
+    }
+
+    .type-fx-cell,
+    .type-fx-icon {
+        font-size: .75rem
+    }
+
+    .type-fx-25,
+    .type-fx-50 {
+        font-size: .875rem
+    }
+}
+
+.type-fx-list {
+    margin-left: 1.75rem
+}
+
+.cell-dual-type {
+    display: flex
+}
+
+.cell-dual-type .type-icon:first-child {
+    margin-right: 1px
+}
+
+.type-table .cell-total {
+    padding: 0 10px
+}
+
+.has-pkmn>.cell-total {
+    cursor: pointer
+}
+
+.has-pkmn>.cell-total:hover {
+    background-color: #fffacd;
+    text-decoration: underline
+}
+
+.type-table-dense .type-cell,
+.type-table-dense .type-fx-cell,
+.type-table-dense .type-fx-icon {
+    height: 26px;
+    font-size: .625rem;
+    line-height: 24px
+}
+
+.type-table-dense .type-abbr,
+.type-table-dense .type-fx-cell,
+.type-table-dense .type-fx-icon {
+    width: 26px
+}
+
+.infocard-list-types>.infocard {
+    width: 168px
+}
+
+@supports (display: grid) {
+    .infocard-list-types {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr))
+    }
+}
+
+.type-table-pokedex {
+    display: inline-block;
+    margin: 0 0 0 -1px
+}
+
+.infocard-list-evo {
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.infocard-list-evo>.infocard {
+    width: 150px;
+    vertical-align: middle
+}
+
+.infocard-list-evo>.infocard-arrow {
+    width: 165px
+}
+
+.infocard-evo-split {
+    display: flex;
+    flex-direction: column;
+    justify-content: center
+}
+
+.infocard-evo-split>.infocard-list-evo {
+    justify-content: flex-start
+}
+
+.icon-arrow {
+    display: block;
+    font: normal 2.5rem/1 "Arial Unicode MS", "Trebuchet MS", "Arial", "Helvetica", sans-serif
+}
+
+.icon-arrow-n::before {
+    content: "\2191\FE0E"
+}
+
+.icon-arrow-e::before {
+    content: "\2192\FE0E"
+}
+
+.icon-arrow-s::before {
+    content: "\2193\FE0E"
+}
+
+.icon-arrow-w::before {
+    content: "\2190\FE0E"
+}
+
+.icon-arrow-ne::before {
+    content: "\2197\FE0E"
+}
+
+.icon-arrow-se::before {
+    content: "\2198\FE0E"
+}
+
+.icon-arrow-sw::before {
+    content: "\2199\FE0E"
+}
+
+.icon-arrow-nw::before {
+    content: "\2196\FE0E"
+}
+
+@media (max-width: 619px) {
+    .infocard-list-evo {
+        flex-direction: column
+    }
+
+    .infocard-list-evo>.infocard {
+        width: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 0
+    }
+
+    .infocard-list-evo>.infocard-arrow {
+        flex-direction: column
+    }
+
+    .infocard-list-evo .infocard-lg-img {
+        margin-right: .5rem
+    }
+
+    .infocard-list-evo .infocard-lg-data {
+        text-align: left
+    }
+
+    .infocard-evo-split {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around
+    }
+
+    .infocard-evo-split .infocard {
+        max-width: 140px;
+        flex-direction: column
+    }
+
+    .infocard-evo-split .infocard-arrow>small {
+        order: 1
+    }
+
+    .infocard-evo-split .infocard-lg-data {
+        text-align: center
+    }
+
+    .icon-arrow-e::before {
+        content: "\2193"
+    }
+
+    .icon-arrow-ne::before {
+        content: "\2193"
+    }
+
+    .icon-arrow-se::before {
+        content: "\2193"
+    }
+}
+
+.sprites-table th,
+.sprites-table td {
+    border-width: 1px;
+    text-align: center
+}
+
+.sprites-table tr:hover {
+    background-color: transparent
+}
+
+.sprites-history-table th,
+.sprites-history-table td {
+    padding: .75rem 1.25rem
+}
+
+.cell-sprite-games {
+    width: 135px;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    vertical-align: top !important
+}
+
+.cell-sprite-list {
+    min-width: 250px
+}
+
+.sprites-table-card {
+    display: inline-block;
+    vertical-align: top
+}
+
+.sprite-share-link {
+    display: inline-block;
+    border-radius: 4px;
+    padding: .5rem;
+    transition: background-color .3s ease-in-out
+}
+
+.sprite-share-link:hover {
+    background-color: #e5fbec
+}
+
+.sprite-share-link.sprite-anim {
+    min-width: 96px;
+    min-height: 96px;
+    line-height: 96px
+}

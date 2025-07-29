@@ -1,0 +1,31 @@
+html
+    head
+        link(rel='stylesheet' type="text/css" href='/css/index.css')
+        title Let's Go Pikachu & Let's Go Eevee Pokédex
+        link(rel='shortcut icon' type='image/x-icon' href='https://pokemondb.net/favicon.ico')
+        script(type='text/javascript' src='/js/index.js')
+    body
+        include includes/header.pug
+        main.main-content.grid-container
+            h1 Let's Go Pikachu & Let's Go Eevee Pokédex
+            input(type= "text", placeholder= "Search for pokemon by name...", id= "searchbox", onkeyup="searchplz()", style="width: 100%")
+            div.infocard-list.infocard-list-pkmn-lg
+                for pokemon in pokedex
+                    div.infocard.infocard-lgpe(name= "pokemon")
+                        span.infocard-img
+                            a(href= "/pokemon/"+pokemon.name.toLowerCase())
+                                img.img-sprite(src= pokemon.img, alt= pokemon.name)
+                        span.infocard-data
+                            small.infocard-lg-data.text-muted= pokemon.id
+                            a.ent-name(href= "/pokemon/"+pokemon.name.toLowerCase(), id= "pokemon"+(parseInt(pokemon.id.substring(1))-1))= pokemon.name
+                            br
+                            small
+                                if pokemon.types.length == 1
+                                    a.itype(class= pokemon.types[0].type_name.toLowerCase(), href= pokemon.types[0].type_url)= pokemon.types[0].type_name
+                                else
+                                    a.itype(class= pokemon.types[0].type_name.toLowerCase(), href= pokemon.types[0].type_url)= pokemon.types[0].type_name
+                                    span /
+                                    a.itype(class= pokemon.types[1].type_name.toLowerCase(), href= pokemon.types[1].type_url)= pokemon.types[1].type_name
+        include includes/footer.pug
+
+
