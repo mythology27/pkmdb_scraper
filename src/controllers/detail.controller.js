@@ -99,8 +99,6 @@ const crawlPokemon = async (url, path) => {
         */
     }
     const pkm = cheerio.load(body)
-    console.log(pkm)
-    console.log(pkm('h1'))
     pokemon['name'] = pkm('h1').text()
     pokemon['img'] = pkm('a[rel=lightbox] img').attr('src')
     pokemon['id'] = pkm('th:contains("National №")').next().eq(0).text()
