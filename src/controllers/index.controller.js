@@ -1,7 +1,6 @@
 const fs = require('fs-extra')
 const path = require('path')
 const cheerio = require('cheerio')
-const fetch = require('node-fetch').default
 const xml2js = require('xml2js')
 const { readXml } = require('../helpers/utils')
 const config = require('../configs/app.config')
